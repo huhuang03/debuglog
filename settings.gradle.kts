@@ -3,3 +3,4 @@ plugins {
 }
 rootProject.name = "debuglog"
 include("gradle-plugin")
+include("kotlin-compiler-plugin")
