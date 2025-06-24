@@ -1,4 +1,4 @@
-package org.example
+package com.example
 
 import org.gradle.api.provider.Provider
 import org.jetbrains.kotlin.gradle.plugin.*

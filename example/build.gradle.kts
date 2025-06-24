@@ -1,24 +1,19 @@
 plugins {
     kotlin("jvm")
+    id("com.example.myplugin") version "1.0-SNAPSHOT"
 }
+
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    implementation(kotlin("compiler-embeddable"))
     testImplementation(kotlin("test"))
-}
-
-// publish to mavenLocal
-
-// for META-INF/services
-tasks.withType<Jar> {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.test {
