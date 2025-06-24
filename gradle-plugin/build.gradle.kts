@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    `java-gradle-plugin`
 }
 
 group = "org.example"
@@ -10,7 +11,17 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("gradle-plugin-api"))
     testImplementation(kotlin("test"))
+}
+
+gradlePlugin {
+    plugins {
+        create("myKcpGradlePlugin") {
+            id = "com.example.myplugin"
+            implementationClass = "com.example.MyPlugin"
+        }
+    }
 }
 
 tasks.test {
