@@ -10,7 +10,13 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("compiler-embeddable"))
     testImplementation(kotlin("test"))
+}
+
+// for META-INF/services
+tasks.withType<Jar> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.test {
