@@ -1,9 +1,27 @@
 plugins {
     kotlin("jvm")
+    `maven-publish`
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "com.example"
+version = "1.0.0"
+
+// ✅ 发布配置（注意 `from(components["java"])` 只适用于 JVM 项目）
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"]) // 自动包含 jar 和 pom
+            groupId = project.group.toString()
+            artifactId = "my-compiler-plugin"
+            version = project.version.toString()
+        }
+    }
+
+    // 可选：默认就是 mavenLocal
+    repositories {
+        mavenLocal()
+    }
+}
 
 repositories {
     mavenCentral()
