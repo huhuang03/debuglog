@@ -16,6 +16,9 @@ class DebuglogPlugin : CompilerPluginRegistrar() {
         get() = true
 
     override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
+        println("haaa")
+        throw RuntimeException("here")
+        println("✅ CompilerPluginRegistrar 注册插件中") // ⬅️ 这里加打印
         IrGenerationExtension.registerExtension(MyIrGenerationExtension())
     }
 }
